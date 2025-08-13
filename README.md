@@ -59,9 +59,10 @@ Create the directory and configuration file inside `~/mosquitto/config`:
 
 ```bash
 mkdir -p ~/mosquitto/config
+cd ~/mosquitto/config
 ```
 
-Create `mosquitto.conf` with the following contents:
+Create `mosquitto.conf` with the following contents using a text editor:
 
 ```bash
 listener 1883
