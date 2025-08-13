@@ -1,13 +1,14 @@
 # DreamScan4MQTT – MQTT Broker Vulnerability Scanner
 
-Dream4MQTT is a Dynamic Rule-Based Vulnerabil-ity Scanner for MQTT Brokers devoloped in python3 tested for Mosquitto Brokers.
+DreamScan4MQTT is a Dynamic Rule-Based Vulnerability Scanner for MQTT Brokers developed in Python3. It has been tested for Mosquitto brokers.
+
 ## Features
 
-- Detects Vulnerabalties and misconfigs
+- Detects vulnerabilities and misconfigurations
 - Retrieves CVEs from public databases based on version number
 - Performs authentication bypass checks
 - Modular test architecture (easily extensible)
-- Fingerprinting module avalible for version 1.3.1-.13.5
+- Fingerprinting module available for Mosquitto versions 1.3.1 to 1.3.5
 - Generates a detailed PDF vulnerability report via LaTeX
 
 ## Requirements
@@ -22,23 +23,27 @@ pip3 install paho-mqtt rule-engine
 
 ### LaTeX (for PDF report generation)
 
-Dream4MQTT uses PdfLaTeX to compile the vulnerability report. On Linux (Debian/Ubuntu/Kali), run:
+DreamScan4MQTT uses PdfLaTeX to compile the vulnerability report. On Linux (Debian/Ubuntu/Kali), run:
 
 ```bash
 sudo apt update
 sudo apt install texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
 ```
+
 ## Running the Scanner
-A config file can be found containing the IP and Port of the broker in /Dreamscan4MQTT/config/config.json
-Please edit according to the target IP address and Port
-```bash
+
+A configuration file is located at `/DreamScan4MQTT/config/config.json`. Edit it with the target broker's IP address and port:
+
+```json
 {
   "broker_ip": "192.168.15.211",
   "broker_port": 1883
 }
+```
+
 ## Testing the Scanner
 
-To quickly test DreamScan 4MQTT, you can run a Mosquitto broker using the pre-built Docker image:
+To test DreamScan4MQTT, you can run a Mosquitto broker using the pre-built Docker image:
 
 ```bash
 # Pull the Docker image
@@ -47,13 +52,27 @@ docker pull zahmed70/mosquitto-1.3.1:latest
 # Run the broker on default MQTT port 1883
 docker run -it -p 1883:1883 -v ~/mosquitto/config:/mosquitto/config zahmed70/mosquitto-1.3.1
 ```
-Use the following config file for testing the python tool
+
+### Docker Configuration
+
+Create the directory and configuration file inside `~/mosquitto/config`:
+
+```bash
+mkdir -p ~/mosquitto/config
+```
+
+Create `mosquitto.conf` with the following contents:
 
 ```bash
 listener 1883
 user root
 allow_anonymous true
+```
 
+After setting up the broker, run the scanner:
+
+```bash
+python3 main.py
 ```
 
 ## Example Output
@@ -76,9 +95,9 @@ CPE: cpe:2.3:a:eclipse:mosquitto:1.3.1:*:*:*:*:*:*:*
 
 ## Notes
 
-- DreamScan4MQTT is designed for research and testing on brokers you own or have permission to scan.
-- Please use within the legal frameworks of your country and be ethical :)
-- The scanner is modular; we advise you to add new modules as alot of work is there to be done.
+- DreamScan4MQTT is intended for research and testing on brokers you own or have permission to scan.
+- Use the tool ethically and within legal frameworks.
+- The scanner is modular; you can add new modules to extend functionality.
 
 ## License
 
