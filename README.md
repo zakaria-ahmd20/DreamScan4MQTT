@@ -1,6 +1,6 @@
 # DreamScan4MQTT – MQTT Broker Vulnerability Scanner
 
-DreamScan4MQTT is a Dynamic Rule-Based Vulnerability Scanner for MQTT Brokers developed in Python3. It has been tested for Mosquitto brokers.
+DreamScan4MQTT is a Dynamic Rule-Based Vulnerability Scanner for MQTT Brokers developed in Python3. It has been tested for Mosquitto brokers and designed to be used on a Linux based system.
 
 ## Features
 
