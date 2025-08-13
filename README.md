@@ -7,7 +7,7 @@ DreamScan4MQTT is a Dynamic Rule-Based Vulnerability Scanner for MQTT Brokers de
 - Detects vulnerabilities and misconfigurations
 - Retrieves CVEs from public databases based on version number
 - Performs authentication bypass checks
-- Modular test architecture (easily extensible)
+- New modules being added each week
 - Fingerprinting module available for Mosquitto versions 1.3.1 to 1.3.5
 - Generates a detailed PDF vulnerability report via LaTeX
 
