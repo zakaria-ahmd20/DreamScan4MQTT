@@ -87,12 +87,15 @@ CPE: cpe:2.3:a:eclipse:mosquitto:1.3.1:*:*:*:*:*:*:*
 [*] Compiling PDF...
 [✓] Report generated: reports/mqtt_cve_report.pdf
 ```
-
+Always cleanup before running the script twice , you can see the command below on how to cleanup
+```bash
+python3 scripts/cleanup.py
+```
 ## Troubleshooting
 
-- Missing LaTeX packages: install `texlive-latex-extra` if you see errors
-- PDF compilation timeout: increase timeout in `generate_report.py`
+- latex compile errors means , missing LaTeX packages: install `texlive-latex-extra` if you see error
 - Python module not found (`rule_engine` or `paho-mqtt`): `pip3 install paho-mqtt rule-engine`
+  
 
 ## Notes
 
