@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\title{MQTT CVE Security Report}
+\date{2025-08-13 11:43:46}
+\begin{document}
+\maketitle
+
+\section*{Broker Information}
+\begin{itemize}
+  \item \textbf{IP Address:} 192.168.15.211
+  \item \textbf{Port:} 1883
+  \item \textbf{Version:} mosquitto version 2.0.16
+  \item \textbf{CPE:} cpe:2.3:a:eclipse:mosquitto:2.0.16:*:*:*:*:*:*:*
+\end{itemize}
+
+\section*{Executive Summary}
+This report summarizes known vulnerabilities affecting the Mosquitto MQTT broker.
+
+\textbf{Total CVEs found:} 3\\
+\quad $\bullet$ Critical (9.0–10.0): 1\\
+\quad $\bullet$ High (7.0–8.9): 1\\
+\quad $\bullet$ Medium (4.0–6.9): 1\\
+\quad $\bullet$ Low (0.1–3.9): 0\\
+\quad $\bullet$ Unscored / Unknown: 0\\
+
+\section*{Critical (9.0–10.0) (1 CVEs)}
+\textbf{CVE ID:} CVE-2024-10525\\
+\textbf{CVSS Score:} 9.8\\
+\textbf{Published:} 2024-10-30T12:15:02\\
+\textbf{Summary:} In Eclipse Mosquitto, from version 1.3.2 through 2.0.18, if a malicious broker sends a crafted SUBACK packet with no reason codes, a client using libmosquitto may make out of bounds memory access when acting in its on\_subscribe callback. This affects the mosquitto\_sub and mosquitto\_rr clients.\\
+\textbf{References:}\\\begin{itemize}
+\item \href{https://github.com/eclipse-mosquitto/mosquitto/commit/8ab20b4ba4204fdcdec78cb4d9f03c944a6e0e1c}{https://github.com/eclipse-mosquitto/mosquitto/commit/8ab20b4ba4204fdcdec78cb4d9f03c944a6e0e1c}
+\item \href{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/190}{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/190}
+\item \href{https://mosquitto.org/blog/2024/10/version-2-0-19-released/}{https://mosquitto.org/blog/2024/10/version-2-0-19-released/}
+\end{itemize}
+\vspace{0.5cm}
+\section*{High (7.0–8.9) (1 CVEs)}
+\textbf{CVE ID:} CVE-2024-8376\\
+\textbf{CVSS Score:} 7.5\\
+\textbf{Published:} 2024-10-11T16:15:14\\
+\textbf{Summary:} In Eclipse Mosquitto up to version 2.0.18a, an attacker can achieve memory leaking, segmentation fault or heap-use-after-free by sending specific sequences of "CONNECT", "DISCONNECT", "SUBSCRIBE", "UNSUBSCRIBE" and "PUBLISH" packets.\\
+\textbf{References:}\\\begin{itemize}
+\item \href{https://github.com/eclipse-mosquitto/mosquitto/commit/1914b3ee2a18102d0a94cbdbbfeae1afa03edd17}{https://github.com/eclipse-mosquitto/mosquitto/commit/1914b3ee2a18102d0a94cbdbbfeae1afa03edd17}
+\item \href{https://github.com/eclipse/mosquitto/releases/tag/v2.0.19}{https://github.com/eclipse/mosquitto/releases/tag/v2.0.19}
+\item \href{https://gitlab.eclipse.org/security/cve-assignement/-/issues/26}{https://gitlab.eclipse.org/security/cve-assignement/-/issues/26}
+\item \href{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/216}{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/216}
+\item \href{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/217}{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/217}
+\item \href{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/218}{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/218}
+\item \href{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/227}{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/227}
+\item \href{https://mosquitto.org/}{https://mosquitto.org/}
+\end{itemize}
+\vspace{0.5cm}
+\section*{Medium (4.0–6.9) (1 CVEs)}
+\textbf{CVE ID:} CVE-2024-3935\\
+\textbf{CVSS Score:} 6.5\\
+\textbf{Published:} 2024-10-30T12:15:03\\
+\textbf{Summary:} In Eclipse Mosquito, versions from 2.0.0 through 2.0.18, if a Mosquitto broker is configured to create an outgoing bridge connection, and that bridge connection has an incoming topic configured that makes use of topic remapping, then if the remote connection sends a crafted PUBLISH packet to the broker a double free will occur with a subsequent crash of the broker.\\
+\textbf{References:}\\\begin{itemize}
+\item \href{https://github.com/eclipse-mosquitto/mosquitto/commit/ae7a804dadac8f2aaedb24336df8496a9680fda9}{https://github.com/eclipse-mosquitto/mosquitto/commit/ae7a804dadac8f2aaedb24336df8496a9680fda9}
+\item \href{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/197}{https://gitlab.eclipse.org/security/vulnerability-reports/-/issues/197}
+\item \href{https://mosquitto.org/blog/2024/10/version-2-0-19-released/}{https://mosquitto.org/blog/2024/10/version-2-0-19-released/}
+\end{itemize}
+\vspace{0.5cm}
+\section*{Additional Tests}
+The following test modules were run, and here are their results:
+
+\textbf{Error reading file auth-check.json:} Extra data: line 2 column 1 (char 93)\\
+\textbf{Test:} fingerprint-matched\\
+\textbf{Result:} {"fingerprint": "Mosquitto\u2122 1.3.1-1.3.5"}\\
+\vspace{0.2cm}
+\end{document}

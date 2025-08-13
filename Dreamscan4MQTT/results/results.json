@@ -1,0 +1,12 @@
+{"test": "Reject invalid un/subscriptions", "result": "Rejected"}
+{"test": "mqtt_v5_connect", "connack_return_code": 0}
+{"test": "session present check", "result": "session present supported"}
+{"test": "unsub_test", "result": "Connection closed by broker with no response."}
+{"test": "Reject invalid un/subscriptions", "result": "Rejected"}
+{"test": "mqtt_v5_connect", "connack_return_code": 0}
+{"test": "session present check", "result": "session present supported"}
+{"test": "unsub_test", "result": "Connection closed by broker with no response."}
+{"test": "Reject invalid un/subscriptions", "result": "Rejected"}
+{"test": "mqtt_v5_connect", "connack_return_code": 0}
+{"test": "session present check", "result": "session present supported"}
+{"test": "unsub_test", "result": "Connection closed by broker with no response."}
